@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ro">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Site de informare despre riscurile datelor medicale. Quiz-ul nu salvează și nu trimite răspunsurile."
+    />
+    <title>Datele tale medicale</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Source+Sans+3:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="wrap header-inner">
+        <a class="brand" href="#acasa" data-go="home">Datele tale medicale</a>
+        <nav class="nav" aria-label="Principal">
+          <a href="#quiz" data-nav="quiz" data-go="quiz">Quiz</a>
+          <a href="#invata" data-nav="learn" data-go="learn">Informare</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section id="view-home" class="view wrap" hidden>
+        <div class="hero">
+          <div>
+            <p class="privacy-pill">Quiz-ul nu reține date. Nimic nu pleacă din browser.</p>
+            <h1>Îți dai datele de sănătate fără să îți dai seama?</h1>
+            <p class="lede">
+              Un dosar medical nu e o parolă pe care o schimbi. Criminalii îl vor pentru fraudă,
+              șantaj și atacuri credibile. Începe cu un quiz scurt — apoi vezi de ce, cum și ce poți face.
+            </p>
+            <div class="actions">
+              <a class="btn btn-primary" href="#quiz" data-go="quiz">Începe quiz-ul</a>
+              <a class="btn btn-ghost" href="#invata" data-go="learn">Sari la informare</a>
+            </div>
+          </div>
+          <aside class="side-card">
+            <h2>Pe scurt</h2>
+            <ol>
+              <li>Răspunzi la 10 situații obișnuite.</li>
+              <li>Primești un scor și un feedback, doar pe ecran.</li>
+              <li>Citești de ce sunt vânate datele, cum se obțin, cum te protejezi.</li>
+            </ol>
+            <p class="privacy-inline">
+              Nu cerem nume, email sau CNP. Nu folosim cookie-uri de urmărire.
+              La reîncărcarea paginii, scorul dispare.
+            </p>
+          </aside>
+        </div>
+      </section>
+
+      <section id="view-quiz" class="view wrap" hidden>
+        <div class="quiz-top">
+          <h1>Cât de atent ești cu datele medicale</h1>
+          <p id="quiz-step">Întrebarea 1</p>
+        </div>
+        <div class="track" aria-hidden="true"><span id="quiz-progress"></span></div>
+        <div class="quiz-card">
+          <p id="quiz-prompt"></p>
+          <div id="quiz-options" class="options"></div>
+          <div class="quiz-nav">
+            <button type="button" class="btn btn-ghost" id="quiz-back">Întrebarea anterioară</button>
+          </div>
+        </div>
+      </section>
+
+      <section id="view-results" class="view wrap" hidden>
+        <div id="result-banner" class="result-banner">
+          <p class="kicker">Scorul tău din această sesiune</p>
+          <p id="result-score">0 / 20</p>
+          <h2 id="result-title"></h2>
+          <p id="result-summary"></p>
+          <div class="actions">
+            <a class="btn btn-primary" href="#invata" data-go="learn">Citește ghidul</a>
+            <a class="btn btn-ghost" href="#quiz" data-go="quiz">Refă quiz-ul</a>
+          </div>
+        </div>
+        <div id="result-tips"></div>
+      </section>
+
+      <section id="view-learn" class="view wrap" hidden>
+        <div class="learn-intro">
+          <h1>De ce, cum, și ce poți face</h1>
+          <p class="lede">
+            Textele de mai jos sunt un cadru educațional. După cercetarea în literatură vor fi
+            actualizate cu surse, fără a păstra date despre cine citește.
+          </p>
+        </div>
+        <div id="articles"></div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap footer-inner">
+        <p>
+          Proiect de informare. Quiz-ul rulează local, în browser. Răspunsurile nu sunt trimise
+          și nu sunt stocate.
+        </p>
+        <p>Conținut draft — va fi aliniat la literatura de specialitate.</p>
+      </div>
+    </footer>
+
+    <script src="js/content.js"></script>
+    <script src="js/quiz.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>
