@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="A short awareness quiz about medical data habits. Answers stay in your browser and are never stored."
+    />
+    <title>Quiz — Your medical data</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Source+Sans+3:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="wrap header-inner">
+        <a class="brand" href="index.html">Your medical data</a>
+        <nav class="nav" aria-label="Primary">
+          <a href="index.html">Home</a>
+          <a href="quiz.html" aria-current="page">Quiz</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="wrap page">
+      <section id="view-quiz">
+        <div class="quiz-top">
+          <h1>How careful are you with medical data?</h1>
+          <p id="quiz-step">Question 1</p>
+        </div>
+        <div class="track" aria-hidden="true"><span id="quiz-progress"></span></div>
+        <div class="quiz-card">
+          <p id="quiz-prompt"></p>
+          <div id="quiz-options" class="options"></div>
+          <div class="quiz-nav">
+            <button type="button" class="btn btn-ghost" id="quiz-back">Previous question</button>
+          </div>
+        </div>
+      </section>
+
+      <section id="view-results" hidden>
+        <div id="result-banner" class="result-banner">
+          <p class="kicker">Your score for this session</p>
+          <p id="result-score">0 / 20</p>
+          <h2 id="result-title"></h2>
+          <p id="result-summary"></p>
+          <div class="actions">
+            <a class="btn btn-primary" href="index.html">Go to the modules</a>
+            <button type="button" class="btn btn-ghost" id="quiz-retake">Retake the quiz</button>
+          </div>
+        </div>
+        <div id="result-tips"></div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap footer-inner">
+        <p>Educational project. Quiz answers are not sent and not stored.</p>
+        <p>Draft content — to be aligned with the research literature.</p>
+      </div>
+    </footer>
+
+    <script src="js/quiz.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>

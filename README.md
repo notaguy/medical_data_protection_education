@@ -1,34 +1,38 @@
-# Datele tale medicale
+# Your medical data
 
-Site de informare despre riscurile legate de datele medicale: de ce sunt căutate, cum sunt obținute și cum le poți proteja.
+Educational site about medical-data risks: why the data matter, who can see them, GDPR and HIPAA rights, and how to protect accounts.
 
-Quiz-ul rulează **doar în browser**. Răspunsurile **nu sunt trimise** și **nu sunt salvate** (nici pe server, nici în `localStorage`).
+The quiz runs **only in the browser**. Answers are **not sent** and **not saved** (not on a server, not in `localStorage`).
 
 Repo: [notaguy/medical_data_protection_education](https://github.com/notaguy/medical_data_protection_education)
 
-După activarea GitHub Pages, adresa publică va fi:
+After GitHub Pages is enabled:
 
 `https://notaguy.github.io/medical_data_protection_education/`
 
-## Publicare pe GitHub Pages
+## Publish on GitHub Pages
 
-Site-ul este static (`index.html` în rădăcină). În GitHub:
+The site is static (`index.html` at the root). On GitHub:
 
 1. **Settings → Pages**
 2. **Build and deployment → Source:** Deploy from a branch
 3. **Branch:** `main`, folder `/ (root)`
 4. Save
 
-Căile din HTML sunt relative, ca să funcționeze și în subfolderul proiectului Pages.
+Paths in the HTML are relative so Pages works in the project subfolder.
 
-## Rulare locală
+## Run locally
 
-Deschide `index.html` în browser sau, din acest folder:
+Open `index.html` or, from this folder:
 
 ```bash
 npx --yes serve
 ```
 
-## Conținut
+## Content
 
-Textele informative sunt un **draft educațional**. Vor fi aliniate la literatura de specialitate după cercetare. Editează `js/content.js` (articole) și `js/quiz.js` (întrebări).
+Draft educational text. Align it with the literature after research.
+
+- Home: `index.html` (title, quiz button, four module sections)
+- Modules: `why-data-matters.html`, `who-can-see.html`, `gdpr-hipaa.html`, `protect-accounts.html`
+- Quiz: `quiz.html` and `js/quiz.js`

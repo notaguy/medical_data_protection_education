@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="ro">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="Site de informare despre riscurile datelor medicale. Quiz-ul nu salvează și nu trimite răspunsurile."
+      content="Learn why medical data is valuable, who can see it, your GDPR and HIPAA rights, and how to protect accounts. The quiz never saves or sends answers."
     />
-    <title>Datele tale medicale</title>
+    <title>Your medical data</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -19,97 +19,60 @@
   <body>
     <header class="site-header">
       <div class="wrap header-inner">
-        <a class="brand" href="#acasa" data-go="home">Datele tale medicale</a>
-        <nav class="nav" aria-label="Principal">
-          <a href="#quiz" data-nav="quiz" data-go="quiz">Quiz</a>
-          <a href="#invata" data-nav="learn" data-go="learn">Informare</a>
+        <a class="brand" href="index.html">Your medical data</a>
+        <nav class="nav" aria-label="Primary">
+          <a href="index.html" aria-current="page">Home</a>
+          <a href="quiz.html">Quiz</a>
         </nav>
       </div>
     </header>
 
-    <main>
-      <section id="view-home" class="view wrap" hidden>
-        <div class="hero">
-          <div>
-            <p class="privacy-pill">Quiz-ul nu reține date. Nimic nu pleacă din browser.</p>
-            <h1>Îți dai datele de sănătate fără să îți dai seama?</h1>
-            <p class="lede">
-              Un dosar medical nu e o parolă pe care o schimbi. Criminalii îl vor pentru fraudă,
-              șantaj și atacuri credibile. Începe cu un quiz scurt — apoi vezi de ce, cum și ce poți face.
-            </p>
-            <div class="actions">
-              <a class="btn btn-primary" href="#quiz" data-go="quiz">Începe quiz-ul</a>
-              <a class="btn btn-ghost" href="#invata" data-go="learn">Sari la informare</a>
-            </div>
-          </div>
-          <aside class="side-card">
-            <h2>Pe scurt</h2>
-            <ol>
-              <li>Răspunzi la 10 situații obișnuite.</li>
-              <li>Primești un scor și un feedback, doar pe ecran.</li>
-              <li>Citești de ce sunt vânate datele, cum se obțin, cum te protejezi.</li>
-            </ol>
-            <p class="privacy-inline">
-              Nu cerem nume, email sau CNP. Nu folosim cookie-uri de urmărire.
-              La reîncărcarea paginii, scorul dispare.
-            </p>
-          </aside>
+    <main class="wrap page">
+      <div class="home-intro">
+        <p class="privacy-pill">No accounts. The quiz stays in your browser.</p>
+        <h1>Four modules on medical data you may give away without noticing</h1>
+        <p class="lede">
+          Criminals want health records because they are hard to change and easy to misuse.
+          Start with a module — or check your habits in a short quiz that is never stored.
+        </p>
+        <div class="actions">
+          <a class="btn btn-primary" href="quiz.html">Take the quiz</a>
         </div>
-      </section>
+      </div>
 
-      <section id="view-quiz" class="view wrap" hidden>
-        <div class="quiz-top">
-          <h1>Cât de atent ești cu datele medicale</h1>
-          <p id="quiz-step">Întrebarea 1</p>
-        </div>
-        <div class="track" aria-hidden="true"><span id="quiz-progress"></span></div>
-        <div class="quiz-card">
-          <p id="quiz-prompt"></p>
-          <div id="quiz-options" class="options"></div>
-          <div class="quiz-nav">
-            <button type="button" class="btn btn-ghost" id="quiz-back">Întrebarea anterioară</button>
-          </div>
-        </div>
-      </section>
-
-      <section id="view-results" class="view wrap" hidden>
-        <div id="result-banner" class="result-banner">
-          <p class="kicker">Scorul tău din această sesiune</p>
-          <p id="result-score">0 / 20</p>
-          <h2 id="result-title"></h2>
-          <p id="result-summary"></p>
-          <div class="actions">
-            <a class="btn btn-primary" href="#invata" data-go="learn">Citește ghidul</a>
-            <a class="btn btn-ghost" href="#quiz" data-go="quiz">Refă quiz-ul</a>
-          </div>
-        </div>
-        <div id="result-tips"></div>
-      </section>
-
-      <section id="view-learn" class="view wrap" hidden>
-        <div class="learn-intro">
-          <h1>De ce, cum, și ce poți face</h1>
-          <p class="lede">
-            Textele de mai jos sunt un cadru educațional. După cercetarea în literatură vor fi
-            actualizate cu surse, fără a păstra date despre cine citește.
-          </p>
-        </div>
-        <div id="articles"></div>
-      </section>
+      <div class="module-grid" aria-label="Information modules">
+        <a class="module-card" href="why-data-matters.html">
+          <p class="module-number">01</p>
+          <h2>Why does my data matter?</h2>
+          <p>A health record is not a password you can reset. It is identity, history, and leverage.</p>
+          <span class="module-cta">Open module</span>
+        </a>
+        <a class="module-card" href="who-can-see.html">
+          <p class="module-number">02</p>
+          <h2>Who can see my medical data?</h2>
+          <p>Care teams are not the only ones with a view. Apps, insurers, and people you share with can see more than you expect.</p>
+          <span class="module-cta">Open module</span>
+        </a>
+        <a class="module-card" href="gdpr-hipaa.html">
+          <p class="module-number">03</p>
+          <h2>Know your GDPR and HIPAA rights</h2>
+          <p>Two major rules, two regions. Both give you access, limits, and a place to complain — they are not the same law.</p>
+          <span class="module-cta">Open module</span>
+        </a>
+        <a class="module-card" href="protect-accounts.html">
+          <p class="module-number">04</p>
+          <h2>Protect your accounts and data</h2>
+          <p>A few habits close the usual doors: fake lab emails, reused passwords, and photos of documents.</p>
+          <span class="module-cta">Open module</span>
+        </a>
+      </div>
     </main>
 
     <footer class="site-footer">
       <div class="wrap footer-inner">
-        <p>
-          Proiect de informare. Quiz-ul rulează local, în browser. Răspunsurile nu sunt trimise
-          și nu sunt stocate.
-        </p>
-        <p>Conținut draft — va fi aliniat la literatura de specialitate.</p>
+        <p>Educational project. Quiz answers are not sent and not stored.</p>
+        <p>Draft content — to be aligned with the research literature.</p>
       </div>
     </footer>
-
-    <script src="js/content.js"></script>
-    <script src="js/quiz.js"></script>
-    <script src="js/app.js"></script>
   </body>
 </html>

@@ -1,10 +1,7 @@
 (function () {
-  const views = {
-    home: document.getElementById("view-home"),
-    quiz: document.getElementById("view-quiz"),
-    results: document.getElementById("view-results"),
-    learn: document.getElementById("view-learn")
-  };
+  const quizView = document.getElementById("view-quiz");
+  const resultsView = document.getElementById("view-results");
+  if (!quizView || !resultsView) return;
 
   const quizEls = {
     progress: document.getElementById("quiz-progress"),
@@ -22,27 +19,22 @@
     banner: document.getElementById("result-banner")
   };
 
-  const articlesRoot = document.getElementById("articles");
+  const retake = document.getElementById("quiz-retake");
 
-  /** Răspunsurile stau doar în memoria acestei pagini. Nu se scriu pe disc, nu se trimit. */
+  /** Answers live only in this page's memory. Nothing is written to disk or sent. */
   let answers = [];
   let index = 0;
 
-  function show(name) {
-    Object.entries(views).forEach(([key, el]) => {
-      const on = key === name;
-      el.hidden = !on;
-      el.inert = !on;
-      el.classList.toggle("is-active", on);
-    });
+  function showQuiz() {
+    quizView.hidden = false;
+    resultsView.hidden = true;
     window.scrollTo({ top: 0, behavior: "smooth" });
-    document.querySelectorAll("[data-nav]").forEach((link) => {
-      if (link.getAttribute("data-nav") === name) {
-        link.setAttribute("aria-current", "page");
-      } else {
-        link.removeAttribute("aria-current");
-      }
-    });
+  }
+
+  function showResults() {
+    quizView.hidden = true;
+    resultsView.hidden = false;
+    window.scrollTo({ top: 0, behavior: "smooth" });
   }
 
   function resetQuiz() {
@@ -53,7 +45,7 @@
   function renderQuestion() {
     const q = QUIZ[index];
     const total = QUIZ.length;
-    quizEls.step.textContent = `Întrebarea ${index + 1} din ${total}`;
+    quizEls.step.textContent = `Question ${index + 1} of ${total}`;
     quizEls.progress.style.width = `${((index + 1) / total) * 100}%`;
     quizEls.prompt.textContent = q.prompt;
     quizEls.back.disabled = index === 0;
@@ -76,7 +68,7 @@
       renderQuestion();
     } else {
       renderResults();
-      show("results");
+      showResults();
     }
   }
 
@@ -103,8 +95,8 @@
     resultEls.tips.replaceChildren();
     const heading = document.createElement("h3");
     heading.textContent = weak.length
-      ? "Pe baza alegerilor din această sesiune"
-      : "Puncte de reținut";
+      ? "Based on the choices in this session"
+      : "Points to keep";
     resultEls.tips.appendChild(heading);
 
     const list = document.createElement("ul");
@@ -118,56 +110,9 @@
     const privacy = document.createElement("p");
     privacy.className = "privacy-inline";
     privacy.textContent =
-      "Scorul există doar în această fereastră. Dacă reîncarci pagina, dispare. Nu am salvat răspunsurile.";
+      "This score exists only in this window. Reload the page and it is gone. We did not save your answers.";
     resultEls.tips.appendChild(privacy);
   }
-
-  function renderArticles() {
-    articlesRoot.replaceChildren();
-    ARTICLES.forEach((article) => {
-      const el = document.createElement("article");
-      el.className = "article";
-      el.id = article.id;
-
-      const kicker = document.createElement("p");
-      kicker.className = "kicker";
-      kicker.textContent = article.kicker;
-
-      const h2 = document.createElement("h2");
-      h2.textContent = article.title;
-
-      const lead = document.createElement("p");
-      lead.className = "lead";
-      lead.textContent = article.lead;
-
-      el.append(kicker, h2, lead);
-
-      article.body.forEach((para) => {
-        const p = document.createElement("p");
-        p.textContent = para;
-        el.appendChild(p);
-      });
-
-      const note = document.createElement("p");
-      note.className = "draft-note";
-      note.textContent = article.note;
-      el.appendChild(note);
-
-      articlesRoot.appendChild(el);
-    });
-  }
-
-  document.querySelectorAll("[data-go]").forEach((el) => {
-    el.addEventListener("click", (event) => {
-      event.preventDefault();
-      const target = el.getAttribute("data-go");
-      if (target === "quiz") {
-        resetQuiz();
-        renderQuestion();
-      }
-      show(target);
-    });
-  });
 
   quizEls.back.addEventListener("click", () => {
     if (index === 0) return;
@@ -175,10 +120,19 @@
     renderQuestion();
   });
 
+  if (retake) {
+    retake.addEventListener("click", () => {
+      resetQuiz();
+      renderQuestion();
+      showQuiz();
+    });
+  }
+
   window.addEventListener("beforeunload", () => {
     answers = [];
   });
 
-  renderArticles();
-  show("home");
+  resetQuiz();
+  renderQuestion();
+  showQuiz();
 })();
